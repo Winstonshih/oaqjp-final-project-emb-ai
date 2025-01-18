@@ -1,4 +1,4 @@
-import requests
+import requests, json
 def emotion_detector(text_to_analyze):
     url='https://sn-watson-emotion.labs.skills.network/v1/watson.runtime.nlp.v1/NlpService/EmotionPredict'
     header={"grpc-metadata-mm-model-id": "emotion_aggregated-workflow_lang_en_stock"}
@@ -12,7 +12,7 @@ def emotion_detector(text_to_analyze):
     joy_score=emotions['joy']
     sadness_score=emotions['sadness']
     max_score=max(emotions,key=emotions.get)
-    formatted_emotions{
+    formatted_emotions={
         'anger': anger_score,
         'disgust': disgust_score,
         'fear': fear_score,
